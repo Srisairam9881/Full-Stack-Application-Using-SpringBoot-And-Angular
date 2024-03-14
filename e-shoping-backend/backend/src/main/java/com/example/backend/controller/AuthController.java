@@ -2,15 +2,14 @@ package com.example.backend.controller;
 
 import com.example.backend.DTO.JwtAuthResponse;
 import com.example.backend.DTO.LoginDto;
+import com.example.backend.DTO.UserDto;
+import com.example.backend.entities.User;
 import com.example.backend.services.Impl.UserserviceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.backend.DTO.registerDto;
 @AllArgsConstructor
 @RestController
@@ -38,5 +37,23 @@ public class AuthController {
     public ResponseEntity<String> adminRegister(@RequestBody registerDto rd){
         String response=authService.adminRegister(rd);
         return new ResponseEntity<>(response,HttpStatus.CREATED);
+    }
+    //Build Get User Details Rest API
+    @GetMapping("/{usernameOrEmail}")
+    public UserDto getUserDetailsByUsernameOrEmail(@PathVariable String usernameOrEmail) {
+        User user = authService.getUserDetailsByUsernameOrEmail(usernameOrEmail);
+        return new UserDto(user.getFirstName(),user.getLastName(),user.getPhoneNo(),user.getUsername(),user.getEmail());
+    }
+    // Build Update user details Rest API
+    @PutMapping("/{usernameOrEmail}")
+    public ResponseEntity<String> updateUserDetailsByUsernameOrEmail(@PathVariable String usernameOrEmail, @RequestBody UserDto userDto) {
+        authService.updateUserDetailsByUsernameOrEmail(usernameOrEmail, userDto);
+        return ResponseEntity.ok("User details updated successfully");
+    }
+    // Build Delete user by username or email Rest API
+    @DeleteMapping("/{usernameOrEmail}")
+    public ResponseEntity<String> deleteUserByUsernameOrEmail(@PathVariable String usernameOrEmail) {
+        authService.deleteUserByUsernameOrEmail(usernameOrEmail);
+        return ResponseEntity.ok("User deleted successfully");
     }
 }

@@ -1,6 +1,7 @@
 package com.example.backend.services.Impl;
 
 import com.example.backend.DTO.LoginDto;
+import com.example.backend.DTO.UserDto;
 import com.example.backend.DTO.registerDto;
 import com.example.backend.entities.Role;
 import com.example.backend.entities.User;
@@ -10,6 +11,7 @@ import com.example.backend.repository.UserRepository;
 import com.example.backend.services.UserService;
 import com.example.backend.services.sorting.quickSort;
 import com.example.backend.utils.JwtTokenProvider;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -151,5 +153,41 @@ public class UserserviceImpl implements UserService {
         }
         return new ArrayList<>(); // Return empty list if no users found
     }
-
+    @Override
+    public User getUserDetailsByUsernameOrEmail(String usernameOrEmail) {
+        // Check if the input is an email or username
+        if (usernameOrEmail.contains("@")) { // Assuming email contains @ symbol
+            return userRepository.findByEmail(usernameOrEmail)
+                    .orElseThrow(() -> new NoSuchElementException("User not found with email: " + usernameOrEmail));
+        } else {
+            return userRepository.findByUsername(usernameOrEmail)
+                    .orElseThrow(() -> new NoSuchElementException("User not found with username: " + usernameOrEmail));
+        }
+    }
+    @Override
+    @Transactional
+    public void updateUserDetailsByUsernameOrEmail(String usernameOrEmail, UserDto userDto) {
+        User user = getUserDetailsByUsernameOrEmail(usernameOrEmail);
+        // Update user details based on the provided UserDto
+        // For example:
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setEmail(userDto.getEmail());
+        user.setPhoneNo(userDto.getPhoneNo());
+        // Save the updated user
+        userRepository.save(user);
+    }
+    @Override
+    public void deleteUserByUsernameOrEmail(String usernameOrEmail) {
+        User user = getUserDetailsByUsernameOrEmail(usernameOrEmail);
+        // Check if the user exists
+        if (user != null) {
+            // Remove associated roles from the users_roles table
+            user.getRoles().clear(); // Assuming roles are mapped in the User entity
+            // Delete the user
+            userRepository.delete(user);
+        } else {
+            throw new UserFoundException(HttpStatus.BAD_REQUEST,"Username not found");
+        }
+    }
 }
