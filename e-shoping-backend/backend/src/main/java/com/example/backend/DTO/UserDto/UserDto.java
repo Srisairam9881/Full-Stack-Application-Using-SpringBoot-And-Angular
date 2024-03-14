@@ -2,6 +2,8 @@ package com.example.backend.DTO.UserDto;
 
 import lombok.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -12,5 +14,6 @@ public class UserDto {
     private String phoneNo;
     private String username;
     private String email;
+    private List<String> roles; // Add roles field
 }
 

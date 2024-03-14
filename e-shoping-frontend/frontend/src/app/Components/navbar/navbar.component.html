@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+<a routerLink="/" class="logo-link">
+<img src="../../../assets/store.png" width="45px" height="40px" alt="">
+<span class="logo" style="margin-left: 7px;">E-Shopping</span>
+</a>
+<span class="spacer"></span>
+<div class="search-container">
+<input matInput placeholder="Search" class="search-input">
+<button mat-icon-button class="search-icon-button">
+<mat-icon>search</mat-icon>
+</button>
+</div>
+<button mat-icon-button class="cart-icon">
+<mat-icon>shopping_cart</mat-icon>
+</button>
+<ng-container *ngIf="isLoggedIn; else loginSignupButtons">
+<!-- Show email and logout buttons if user is logged in -->
+<button mat-button class="nav-button">{{ user.email }}</button>
+<button mat-raised-button color="accent" class="nav-button" (click)="logout()">Logout</button>
+</ng-container>
+<ng-template #loginSignupButtons>
+<!-- Show login and signup buttons if user is not logged in -->
+<button mat-button class="nav-button" (click)="openLoginDialog()">Login</button>
+<button mat-raised-button color="accent" (click)="opensignUpDialog()" class="nav-button">Sign Up</button>
+</ng-template>
+</mat-toolbar>

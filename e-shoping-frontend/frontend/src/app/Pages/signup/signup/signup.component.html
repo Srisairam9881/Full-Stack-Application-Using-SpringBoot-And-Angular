@@ -1,0 +1,25 @@
+<div class="container">
+<h2>Signup</h2>
+<form (submit)="signup()">
+<div class="input-wrapper">
+<input name="firstName" [(ngModel)]="user.firstName" type="text" placeholder="firstName" >
+</div>
+<div class="input-wrapper">
+<input name="lastName" [(ngModel)]="user.lastName" type="text" placeholder="lastName" >
+</div>
+<div class="input-wrapper">
+<input name="phoneNo" [(ngModel)]="user.phoneNo" type="text" placeholder="phoneNo" >
+</div>
+<div class="input-wrapper">
+<input name="email" [(ngModel)]="user.email" type="email" placeholder="email" >
+</div>
+<div class="input-wrapper">
+<input name="username" [(ngModel)]="user.username" type="text" placeholder="username" >
+</div>
+<div class="input-wrapper">
+<input name="password" [(ngModel)]="user.password" type="password" placeholder="Password">
+</div>
+<button mat-raised-button color="primary" type="submit">Login</button>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</form>
+</div>
