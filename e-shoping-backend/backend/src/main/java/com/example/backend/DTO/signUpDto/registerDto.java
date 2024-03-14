@@ -1,10 +1,6 @@
-package com.example.backend.DTO;
+package com.example.backend.DTO.signUpDto;
 
-import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,5 +14,3 @@ public class registerDto {
     private String email;
     private String password;
 }
-
-

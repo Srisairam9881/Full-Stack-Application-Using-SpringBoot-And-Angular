@@ -1,4 +1,4 @@
-package com.example.backend.DTO;
+package com.example.backend.DTO.loginDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class LoginDto {
-    private String usernameOrEmail;
-    private String password;
+public class JwtAuthResponse {
+    private String accessToken;
+    private String tokenType = "Bearer";
 }

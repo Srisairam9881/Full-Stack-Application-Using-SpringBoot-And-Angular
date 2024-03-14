@@ -1,9 +1,9 @@
-package com.example.backend.controller;
+package com.example.backend.controller.Admin;
 
+import com.example.backend.DTO.UserDto.UserWithCustomerDetails;
 import com.example.backend.entities.User;
-import com.example.backend.services.UserService;
+import com.example.backend.services.userService.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,5 +29,11 @@ public class AdminController {
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/all")
+    public ResponseEntity<List<UserWithCustomerDetails>> getAllUsersWithCustomerDetails() {
+        List<UserWithCustomerDetails> usersWithDetails = userService.getAllUsersWithCustomerDetails();
+        return ResponseEntity.ok(usersWithDetails);
     }
 }

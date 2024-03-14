@@ -1,16 +1,16 @@
-package com.example.backend.controller;
+package com.example.backend.controller.UserController;
 
-import com.example.backend.DTO.JwtAuthResponse;
-import com.example.backend.DTO.LoginDto;
-import com.example.backend.DTO.UserDto;
+import com.example.backend.DTO.loginDto.JwtAuthResponse;
+import com.example.backend.DTO.loginDto.LoginDto;
+import com.example.backend.DTO.UserDto.UserDto;
+import com.example.backend.DTO.signUpDto.registerDto;
 import com.example.backend.entities.User;
-import com.example.backend.services.Impl.UserserviceImpl;
+import com.example.backend.services.UserServiceImpl.UserserviceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import com.example.backend.DTO.registerDto;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/auth")
@@ -32,7 +32,7 @@ public class AuthController {
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
     //Build New Admin Register Rest API
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/admin/register")
     public ResponseEntity<String> adminRegister(@RequestBody registerDto rd){
         String response=authService.adminRegister(rd);

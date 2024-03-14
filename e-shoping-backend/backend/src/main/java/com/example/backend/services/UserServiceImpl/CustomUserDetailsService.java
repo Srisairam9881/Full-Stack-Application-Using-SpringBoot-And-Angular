@@ -1,4 +1,4 @@
-package com.example.backend.services.Impl;
+package com.example.backend.services.UserServiceImpl;
 
 import com.example.backend.entities.User;
 import com.example.backend.repository.UserRepository;
@@ -33,4 +33,5 @@ public class CustomUserDetailsService implements UserDetailsService {
                 authorities
         );
     }
+    
 }

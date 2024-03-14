@@ -1,14 +1,19 @@
-package com.example.backend.services.Impl;
+package com.example.backend.services.UserServiceImpl;
 
-import com.example.backend.DTO.LoginDto;
-import com.example.backend.DTO.UserDto;
-import com.example.backend.DTO.registerDto;
+import com.example.backend.DTO.UserDto.UserWithCustomerDetails;
+import com.example.backend.DTO.loginDto.LoginDto;
+import com.example.backend.DTO.UserDto.UserDto;
+import com.example.backend.DTO.signUpDto.registerDto;
+import com.example.backend.entities.CustomerDetails;
 import com.example.backend.entities.Role;
 import com.example.backend.entities.User;
 import com.example.backend.helper.UserFoundException;
+import com.example.backend.repository.CustomerRepository;
 import com.example.backend.repository.RoleRepository;
 import com.example.backend.repository.UserRepository;
-import com.example.backend.services.UserService;
+import com.example.backend.services.sorting.quickSortForusers;
+import com.example.backend.services.userService.CustomerService;
+import com.example.backend.services.userService.UserService;
 import com.example.backend.services.sorting.quickSort;
 import com.example.backend.utils.JwtTokenProvider;
 import jakarta.transaction.Transactional;
@@ -32,7 +37,9 @@ public class UserserviceImpl implements UserService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
+    private CustomerRepository customerRepository;
     private quickSort q=new quickSort();
+    private quickSortForusers qu=new quickSortForusers();
     @Override
     public String login(LoginDto loginDto) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -84,7 +91,6 @@ public class UserserviceImpl implements UserService {
         userRepository.save(user);
         return "User registered successfully!";
     }
-
     //Create New Admin
     @Override
     public String adminRegister(registerDto rd) {
@@ -152,6 +158,30 @@ public class UserserviceImpl implements UserService {
             return users;
         }
         return new ArrayList<>(); // Return empty list if no users found
+    }
+    @Override
+    public List<UserWithCustomerDetails> getAllUsersWithCustomerDetails() {
+        // Fetch users with the ROLE_USER role
+        Optional<Role> optionalUserRole = roleRepository.findByRoleName("ROLE_USER");
+        if (optionalUserRole.isPresent()) {
+            Role userRole = optionalUserRole.get();
+            List<User> users = userRepository.findAllByRole(userRole);
+
+            // Process users with customer details
+            List<UserWithCustomerDetails> usersWithDetails = new ArrayList<>();
+            for (User user : users) {
+                List<CustomerDetails> customerDetails = customerRepository.findByUserId(user.getId());
+                if (!customerDetails.isEmpty()) {
+                    usersWithDetails.add(new UserWithCustomerDetails(user, customerDetails));
+                } else {
+                    // Handle the case where a user has no associated customer details
+                    usersWithDetails.add(new UserWithCustomerDetails(user, Collections.emptyList()));
+                }
+            }
+            qu.quickSortUserWithCustomerDetails(usersWithDetails, 0, usersWithDetails.size() - 1);
+            return usersWithDetails;
+        }
+        return Collections.emptyList(); // Return empty list if no users found with ROLE_USER role
     }
     @Override
     public User getUserDetailsByUsernameOrEmail(String usernameOrEmail) {
