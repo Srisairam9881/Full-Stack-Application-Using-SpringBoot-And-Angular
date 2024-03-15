@@ -13,7 +13,7 @@ return this.http.post(`${baseUrl}/api/auth/user/register`,user,{ responseType: '
 }
 //add new Admin
 public createNewAdmin(user:any){
-return this.http.post(`${baseUrl}/api/auth/admin/register`,user);
+return this.http.post(`${baseUrl}/api/auth/admin/register`,user,{ responseType:'text' });
 }
 //get userDetails
 public getUserDetails(usernameOrEmail:any){
@@ -21,10 +21,10 @@ return this.http.get(`${baseUrl}/api/auth/${usernameOrEmail}`);
 }
 //update userDetails
 public updateDetails(usernameOrEmail:any,user:any){
-return this.http.put(`${baseUrl}/api/auth/${usernameOrEmail}`,user);
+return this.http.put(`${baseUrl}/api/auth/${usernameOrEmail}`,user,{ responseType:'text' });
 }
 //delete user account
 public deleteUser(usernameOrEmail:any){
-return this.http.delete(`${baseUrl}/api/auth/${usernameOrEmail}`);
+return this.http.delete(`${baseUrl}/api/auth/${usernameOrEmail}`,{responseType:'text'});
 }
 }

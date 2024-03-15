@@ -12,7 +12,6 @@ import com.example.backend.repository.CustomerRepository;
 import com.example.backend.repository.RoleRepository;
 import com.example.backend.repository.UserRepository;
 import com.example.backend.services.sorting.quickSortForusers;
-import com.example.backend.services.userService.CustomerService;
 import com.example.backend.services.userService.UserService;
 import com.example.backend.services.sorting.quickSort;
 import com.example.backend.utils.JwtTokenProvider;
@@ -40,6 +39,7 @@ public class UserserviceImpl implements UserService {
     private CustomerRepository customerRepository;
     private quickSort q=new quickSort();
     private quickSortForusers qu=new quickSortForusers();
+
     @Override
     public String login(LoginDto loginDto) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -220,4 +220,5 @@ public class UserserviceImpl implements UserService {
             throw new UserFoundException(HttpStatus.BAD_REQUEST,"Username not found");
         }
     }
+
 }

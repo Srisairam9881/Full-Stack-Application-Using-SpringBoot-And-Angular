@@ -14,12 +14,10 @@
 <mat-icon>shopping_cart</mat-icon>
 </button>
 <ng-container *ngIf="isLoggedIn; else loginSignupButtons">
-<!-- Show email and logout buttons if user is logged in -->
-<button mat-button class="nav-button">{{ user.email }}</button>
+<button mat-button class="nav-button">{{user?.email }}</button>
 <button mat-raised-button color="accent" class="nav-button" (click)="logout()">Logout</button>
 </ng-container>
 <ng-template #loginSignupButtons>
-<!-- Show login and signup buttons if user is not logged in -->
 <button mat-button class="nav-button" (click)="openLoginDialog()">Login</button>
 <button mat-raised-button color="accent" (click)="opensignUpDialog()" class="nav-button">Sign Up</button>
 </ng-template>

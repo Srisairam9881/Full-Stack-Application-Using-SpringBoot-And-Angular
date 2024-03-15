@@ -1,0 +1,33 @@
+.profile-form {
+border: 1px solid #ccc;
+padding: 20px;
+transition: background-color 0.3s;
+margin-top: 10px;
+}
+
+.profile-form:hover {
+background-color: #f9f9f9;
+}
+
+.full-width {
+width: 100%;
+margin-bottom: 15px;
+}
+
+.actions {
+display: flex;
+justify-content: flex-end;
+}
+
+.actions button {
+margin-left: 10px;
+}
+mat-form-field.mat-form-field-disabled input.mat-input {
+color: black;
+}
+mat-form-field.mat-form-field-disabled .mat-form-field-wrapper {
+background-color: #f5f5f5;
+}
+.mat-icon-button {
+margin-right: 8px;
+}

@@ -1,5 +1,6 @@
 package com.example.backend.controller.UserController;
 
+import com.example.backend.DTO.UserDto.UserWithCustomerDetails;
 import com.example.backend.DTO.loginDto.JwtAuthResponse;
 import com.example.backend.DTO.loginDto.LoginDto;
 import com.example.backend.DTO.UserDto.UserDto;
@@ -43,7 +44,7 @@ public class AuthController {
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
     //Build New Admin Register Rest API
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/admin/register")
     public ResponseEntity<String> adminRegister(@RequestBody registerDto rd){
         String response=authService.adminRegister(rd);
@@ -75,10 +76,10 @@ public class AuthController {
         User user = authService.getUserDetailsByUsernameOrEmail(username);
         List<String> roles = user.getRoles().stream().map(Role::getRoleName).collect(Collectors.toList()); // Assuming Role has a field 'roleName' representing the name of the role
         UserDto userDto = new UserDto(
-                user.getUsername(),
                 user.getFirstName(),
                 user.getLastName(),
                 user.getPhoneNo(),
+                user.getUsername(),
                 user.getEmail(),
                 roles
         );

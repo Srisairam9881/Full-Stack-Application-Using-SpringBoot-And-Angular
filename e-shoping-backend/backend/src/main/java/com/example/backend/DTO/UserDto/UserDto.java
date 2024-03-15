@@ -14,6 +14,6 @@ public class UserDto {
     private String phoneNo;
     private String username;
     private String email;
-    private List<String> roles; // Add roles field
+    private List<String> roles;
 }
 
