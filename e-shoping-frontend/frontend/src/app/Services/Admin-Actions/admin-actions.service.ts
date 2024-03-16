@@ -37,7 +37,27 @@ public SearchCategory(){
 return this.http.get(`${baseUrl}/api/categories/search`,{ responseType:'text' });
 }
 //delete category
-public deleteCategory(cid:any){
+public deleteCategory(cid:number){
 return this.http.delete(`${baseUrl}/api/categories/delete/${cid}`,{ responseType:'text' });
+}
+//add new product
+public addProduct(formData:FormData){
+return this.http.post(`${baseUrl}/api/products/add`,formData,{ responseType:'text' });
+}
+//update product
+public updateProduct(id:number,formData:FormData){
+return this.http.put(`${baseUrl}/api/products/update/${id}`,formData,{ responseType:'text' });
+}
+// get All products
+public getAllProducts(){
+return this.http.get(`${baseUrl}/api/products/allProducts`);
+}
+//get Products By Name
+public getProductByName(productName:any){
+return this.http.get(`${baseUrl}/api/products/${productName}`); 
+}
+//delete Product
+public deleteProduct(id:number){
+return this.http.delete(`${baseUrl}/api/products/delete/${id}`,{ responseType:'text' })
 }
 }

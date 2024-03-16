@@ -3,19 +3,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/Services/login-service/login-service.service';
 import { UserService } from 'src/app/Services/user-service/user.service';
+
 @Component({
-selector: 'app-profile',
-templateUrl: './profile.component.html',
-styleUrls: ['./profile.component.css']
+selector: 'app-admin-profile',
+templateUrl: './admin-profile.component.html',
+styleUrls: ['./admin-profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class AdminProfileComponent implements OnInit{
 @Input() profile: any; // Assuming profile is passed as an Input
 showActions: boolean = false;
 isEditing: boolean = false;
 user: any = {};
-
 constructor(private login: LoginServiceService, public userService: UserService,public router:Router, private snackBar: MatSnackBar) { }
-
 ngOnInit(): void {
 this.loadCurrentUser();
 }
@@ -72,5 +71,4 @@ duration: 3000
 );
 }
 }
-
 }

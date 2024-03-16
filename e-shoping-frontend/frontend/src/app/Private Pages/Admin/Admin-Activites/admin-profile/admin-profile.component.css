@@ -1,0 +1,59 @@
+/* Dark theme for form fields */
+.mat-form-field {
+color: white; /* Text color */
+}
+
+.mat-form-field-underline {
+background-color: #555; /* Underline color */
+}
+
+.mat-form-field-ripple {
+background-color: rgba(255, 255, 255, 0.1); /* Ripple effect color */
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+background-color: #444; /* Background color of the filled input */
+}
+
+.mat-form-field-appearance-fill.mat-form-field-invalid .mat-form-field-flex {
+background-color: #770000; /* Background color of the filled input when invalid */
+}
+
+.mat-form-field-label {
+color: #ccc; /* Label color */
+}
+
+.mat-form-field-subscript-wrapper {
+color: #aaa; /* Helper text color */
+}
+
+/* Additional styles */
+.profile-form {
+border: 1px solid #ccc;
+padding: 20px;
+transition: background-color 0.3s;
+margin-top: 10px;
+margin-left: 10px;
+}
+
+.profile-form:hover {
+background-color: whitesmoke; /* Darker background color on hover */
+}
+
+.full-width {
+width: 100%;
+margin-bottom: 15px;
+}
+
+.actions {
+display: flex;
+justify-content: flex-end;
+}
+
+.actions button {
+margin-left: 10px;
+}
+
+.mat-icon-button {
+margin-right: 8px;
+}

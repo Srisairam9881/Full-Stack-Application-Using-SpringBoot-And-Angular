@@ -36,7 +36,9 @@ import { AddCatgoryComponent } from './Private Pages/Admin/Category-Activities/a
 import { ViewCategoriesComponent } from './Private Pages/Admin/Category-Activities/view-categories/view-categories.component';
 import { UpdateCategoryComponent } from './Private Pages/Admin/Category-Activities/update-category/update-category.component';
 import { UpdateProductComponent } from './Private Pages/Admin/Product-Activites/update-product/update-product.component';
-import { ProfileComponent } from './Private Pages/Admin/Admin-Activites/profile/profile.component';
+import { AdminProfileComponent } from './Private Pages/Admin/Admin-Activites/admin-profile/admin-profile.component';
+import { ProfileComponent } from './Private Pages/User/User-Activites/profile/profile.component';
+import { ConfirmationDialogComponent } from './Private Pages/Admin/Category-Activities/Dialog-confirm/ConfirmationDialogComponent ';
 
 @NgModule({
 declarations: [
@@ -51,6 +53,7 @@ SideBarComponent,
 WelcomeComponent,
 AddAdminComponent,
 ProfileComponent,
+AdminProfileComponent,
 ViewAdminsComponent,
 ViewUsersComponent,
 AddProductComponent,
@@ -60,7 +63,8 @@ AddCatgoryComponent,
 ViewCategoriesComponent,
 UpdateCategoryComponent,
 UpdateProductComponent,
-
+AdminProfileComponent,
+ConfirmationDialogComponent,
 ],
 imports: [
 BrowserModule,

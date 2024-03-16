@@ -19,12 +19,8 @@ public class products {
     private String productName;
     private String description;
     private String price;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
     private String offeredPrice;
     private String rating;
-    private String productImage;
     @Column(name = "created_date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
@@ -33,5 +29,9 @@ public class products {
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     private LocalDateTime updatedDate;
+    private String productImage;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 }

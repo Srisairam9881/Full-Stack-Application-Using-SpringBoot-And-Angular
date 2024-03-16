@@ -27,7 +27,6 @@ private router: Router,
 public snackBar:MatSnackBar
 ) {}
 signup(){
-
 // Check if any of the required fields are empty
 if (!this.user.username || !this.user.password || !this.user.email || !this.user.firstName || !this.user.lastName || !this.user.phoneNo) {
 this.errorMessage = 'All fields are required.';
@@ -35,6 +34,7 @@ return;
 }
 
 this.authService.createNewAdmin(this.user).subscribe((data)=>{
+window.location.reload();
 this.snackBar.open('Admin added successfully', 'Close', {
 duration: 3000
 });

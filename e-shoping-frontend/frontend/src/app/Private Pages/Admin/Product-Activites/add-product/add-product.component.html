@@ -1,1 +1,49 @@
-<p>add-product works!</p>
+<form (ngSubmit)="submitForm()" #productForm="ngForm" class="product-form" enctype="multipart/form-data">
+<h1 style="text-align: center;margin-top: 10px;">Add New Product</h1>
+<mat-divider></mat-divider>
+<div class="input-group">
+<div class="form-group">
+<label for="productName">Product Name:</label>
+<input type="text" id="productName" name="productName" ngModel required>
+</div>
+<div class="form-group">
+<label for="description">Description:</label>
+<textarea id="description" name="description" ngModel required></textarea>
+</div>
+</div>
+<div class="input-group">
+<div class="form-group">
+<label for="price">Price:</label>
+<input type="number" id="price" name="price" ngModel required>
+</div>
+<div class="form-group">
+<label for="offeredPrice">Offered Price:</label>
+<input type="number" id="offeredPrice" name="offeredPrice" ngModel required>
+</div>
+</div>
+<div class="input-group">
+<div class="form-group">
+<label for="rating">Rating:</label>
+<input type="number" id="rating" name="rating" ngModel required>
+</div>
+<div class="form-group">
+<label for="productImage">Product Image:</label>
+<input type="file" id="productImage" name="image" (change)="onFileSelected($event)" accept="image/*" ngModel required style="margin-left: 10px;">
+</div>
+</div>
+<div class="input-group">
+<div class="form-group">
+<select id="category" name="category" ngModel required>
+<option value="">Select Category Name</option>
+<option *ngFor="let category of categories" [value]="category.categoryName">{{ category.categoryName }}</option>
+</select>
+</div>
+<div class="form-group">
+<select id="category" name="category" ngModel required>
+<option value="">Select Category Type</option>
+<option *ngFor="let category of categories" [value]="category.type">{{ category.type }}</option>
+</select>
+</div>
+</div>
+<button type="submit" [disabled]="productForm.invalid">Submit</button>
+</form>

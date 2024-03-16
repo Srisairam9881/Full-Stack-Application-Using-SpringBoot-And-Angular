@@ -8,6 +8,5 @@ import com.example.backend.entities.shoping.products;
 @Setter
 public class productDto {
     private products p;
-    private String categoryDetails;
     private String imageUrl;
 }

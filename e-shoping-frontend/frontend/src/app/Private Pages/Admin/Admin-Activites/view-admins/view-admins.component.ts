@@ -21,8 +21,6 @@ phoneNo: '',
 role:'',
 }
 ];
-filteredItems: any[] = [];
-searchTerm: string = '';
 showGoTopButton = false;
 displayedColumns: string[] = ['username', 'email', 'fullName', 'phoneNo','role'];
 constructor(private adminActions: AdminActionsService,public snackBar:MatSnackBar,public dialog:MatDialog) { }
@@ -34,18 +32,11 @@ loadUsers() {
 this.adminActions.getAllAdmins().subscribe(
 (data:any)=>{
 this.users=data;
-this.filteredItems = data;
 },(err)=>{
 this.snackBar.open('Error to fetching the data'+err, 'Close', {
 duration: 3000
 });
 })
-}
-search(): void {
-this.filteredItems = this.users.filter(item =>
-item.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-item.username.toLowerCase().includes(this.searchTerm.toLowerCase())
-);
 }
 @HostListener('window:scroll', [])
 onWindowScroll() {

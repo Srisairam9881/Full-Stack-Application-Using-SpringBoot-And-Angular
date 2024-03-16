@@ -1,14 +1,10 @@
 <mat-card style="margin-top: 10px;margin-left: 10px;">
 <br>
 <h1 style="text-align: center; color: brown;">All Admins</h1>
+<mat-divider></mat-divider>
 <div style="display: flex; justify-content: end; align-items: center;">
 <button mat-icon-button color="primary" aria-label="Add Admin" matTooltip="Add New Admin" (click)="AddNewAdmin()">
 <mat-icon>add</mat-icon>
-</button>
-<!-- Search input -->
-<input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
-<button mat-icon-button color="primary" aria-label="Search" (click)="search()">
-<mat-icon>search</mat-icon>
 </button>
 </div>
 <mat-divider></mat-divider>
