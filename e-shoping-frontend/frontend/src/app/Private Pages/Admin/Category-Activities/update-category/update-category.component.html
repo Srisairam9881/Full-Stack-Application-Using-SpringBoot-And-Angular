@@ -1,0 +1,13 @@
+<div class="container">
+<h2>Update Category</h2>
+<form (submit)="Update()">
+<div class="input-wrapper">
+<input name="categoryName" [(ngModel)]="category.categoryName" type="text" placeholder="Category Name">
+</div>
+<div class="input-wrapper">
+<input name="type" [(ngModel)]="category.type" type="text" placeholder="Category Type">
+</div>
+<button mat-raised-button color="primary" type="submit">Update</button>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</form>
+</div>

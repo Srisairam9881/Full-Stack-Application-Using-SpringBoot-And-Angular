@@ -1,0 +1,49 @@
+.container {
+margin: 0 auto; /* Center the container */
+max-width: 800px; /* Set maximum width */
+margin-top: 10px;
+background-color: cornsilk; /* Dark background color */
+color: black; /* Light text color */
+padding: 20px; /* Add padding for content */
+border-radius: 10px; /* Add rounded corners */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+.search-bar {
+margin-bottom: 10px; /* Add some space below the search bar */
+}
+table {
+width: 100%;
+border-collapse: collapse;
+}
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+th {
+background-color: #f2f2f2;
+}
+
+.action-button {
+background: none;
+border: none;
+cursor: pointer;
+margin-right: 5px; /* Add some space between buttons */
+}
+.go-top-button {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background-color: #007bff;
+color: #fff;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+display: none; /* Initially hide the button */
+}
+
+/* Show the Go to Top button when scrolled down */
+.show-go-top {
+display: block;
+}

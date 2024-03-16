@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from 'src/app/Private Pages/Login/login/login.component';
-import { SignupComponent } from 'src/app/Private Pages/signup/signup/signup.component';
+import { LoginComponent } from 'src/app/Private Pages/LoginAndSignup/login/login.component';
+import { SignupComponent } from 'src/app/Private Pages/LoginAndSignup/signup/signup.component';
 import { LoginServiceService } from 'src/app/Services/login-service/login-service.service';
 
 @Component({

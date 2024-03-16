@@ -35,6 +35,4 @@ public class AdminController {
         List<UserWithCustomerDetails> usersWithDetails = userService.getAllUsersWithCustomerDetails();
         return ResponseEntity.ok(usersWithDetails);
     }
-    //Build Search operation Rest API
-
 }

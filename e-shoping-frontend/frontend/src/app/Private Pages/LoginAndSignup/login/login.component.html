@@ -1,0 +1,13 @@
+<div class="container">
+<h2>Login</h2>
+<form (submit)="login()">
+<div class="input-wrapper">
+<input name="usernameOrEmail" [(ngModel)]="loginDto.usernameOrEmail" type="text" placeholder="Email" >
+</div>
+<div class="input-wrapper">
+<input name="password" [(ngModel)]="loginDto.password" type="password" placeholder="Password">
+</div>
+<button mat-raised-button color="primary" type="submit">Login</button>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</form>
+</div>

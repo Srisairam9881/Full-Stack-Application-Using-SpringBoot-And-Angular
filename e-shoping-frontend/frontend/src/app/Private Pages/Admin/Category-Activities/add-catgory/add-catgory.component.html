@@ -1,0 +1,13 @@
+<div class="container">
+<h2>Add Category</h2>
+<form (submit)="Category()">
+<div class="input-wrapper">
+<input name="categoryName" [(ngModel)]="category.categoryName" type="text" placeholder="category name" >
+</div>
+<div class="input-wrapper">
+<input name="type" [(ngModel)]="category.type" type="text" placeholder="category type">
+</div>
+<button mat-raised-button color="primary" type="submit">Login</button>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</form>
+</div>

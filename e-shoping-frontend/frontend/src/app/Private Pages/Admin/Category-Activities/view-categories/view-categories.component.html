@@ -1,0 +1,42 @@
+<div class="container">
+<div style="display: flex; justify-content: end; align-items: center;">
+<button mat-icon-button color="primary" aria-label="Add Admin" matTooltip="Add New Category" (click)="AddNew()">
+<mat-icon>add</mat-icon>
+</button>
+<!-- Search input -->
+<input type="text" [(ngModel)]="searchTerm" placeholder="Search..." style="width: 37vh;height: 40px;">
+<button mat-icon-button color="primary" aria-label="Search" (click)="search()">
+<mat-icon>search</mat-icon>
+</button>
+</div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Created Date</th>
+<th>Updated Date</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let item of filteredItems">
+<td>{{ item.categoryName }}</td>
+<td>{{ item.type }}</td>
+<td>{{ item.createdDate }}</td>
+<td>{{ item.updatedDate }}</td>
+<td>
+<button mat-icon-button (click)="editItem(item)" matTooltip="Update Category">
+<mat-icon>edit</mat-icon>
+</button>
+<button mat-icon-button (click)="deleteItem(item)" matTooltip="Delete Category">
+<mat-icon>delete</mat-icon>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<button mat-icon-button class="go-top-button" *ngIf="showGoTopButton" (click)="goToTop()" matTooltip="Go To Up">
+<mat-icon>arrow_upward</mat-icon>
+</button>
+</div>

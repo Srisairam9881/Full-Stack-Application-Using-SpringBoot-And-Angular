@@ -6,6 +6,7 @@ import com.example.backend.utils.JwtAuthenticationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
@@ -20,6 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableMethodSecurity
+@Order(1) // Set the order of this configuration
 @AllArgsConstructor
 public class SpringSecurityConfig {
 
@@ -42,6 +44,8 @@ public class SpringSecurityConfig {
 //                    authorize.requestMatchers(HttpMethod.GET, "/api/**").permitAll();
                     authorize.requestMatchers("/api/auth/**").permitAll();
                     authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
+                    authorize.requestMatchers(HttpMethod.GET,"/api/products/allProducts","/api/products/{productName}","/api/products/search").permitAll();
+                    authorize.requestMatchers(HttpMethod.GET, "/images/**").permitAll();
                     authorize.anyRequest().authenticated();
                 }).httpBasic(Customizer.withDefaults());
         http.exceptionHandling( exception -> exception.authenticationEntryPoint(authenticationEntryPoint));
@@ -58,7 +62,7 @@ public class SpringSecurityConfig {
 //    public UserDetailsService userDetailsService(){
 //
 //        UserDetails ramesh = User.builder()
-//                .username("ramesh")
+//                .username("user1")
 //                .password(passwordEncoder().encode("password"))
 //                .roles("USER")
 //                .build();
@@ -69,7 +73,7 @@ public class SpringSecurityConfig {
 //                .roles("ADMIN")
 //                .build();
 //
-//        return new InMemoryUserDetailsManager(ramesh, admin);
+//        return new InMemoryUserDetailsManager(user1, admin);
 //    }
 
 }
