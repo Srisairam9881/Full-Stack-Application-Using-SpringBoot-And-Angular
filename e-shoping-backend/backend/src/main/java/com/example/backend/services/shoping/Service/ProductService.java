@@ -11,6 +11,6 @@ public interface ProductService {
     products createNewProduct(products p, MultipartFile file, String categoryName, String type) throws IOException;
     products updateProduct(Long id, products st, MultipartFile file,String categoryName, String type) throws IOException;
     List<products> AllProducts();
-    products getProductsByName(String productName);
+    List<products> getProductsByName(String productName);
     void deleteProduct(Long id);
 }

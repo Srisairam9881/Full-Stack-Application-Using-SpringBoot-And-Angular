@@ -9,13 +9,14 @@
 <table>
 <thead>
 <tr>
+<!-- Header cells -->
 <th>Category Name</th>
 <th>Category Type</th>
 <th>Product Name</th>
 <th>Description</th>
 <th>Actual Price</th>
 <th>Offer Price</th>
-<th>Rating</th>
+<th>No of Products</th>
 <th>Created Date</th>
 <th>Updated Date</th>
 <th>Product Image</th>
@@ -23,23 +24,26 @@
 </tr>
 </thead>
 <tbody>
+<!-- Table rows -->
 <tr *ngFor="let productResponse of products">
 <ng-container *ngIf="productMatchesSearch(productResponse)">
 <td>{{ productResponse.p.category.categoryName }}</td>
 <td>{{ productResponse.p.category.type }}</td>
 <td>{{ productResponse.p.productName }}</td>
-<td>{{ productResponse.p.description }}</td>
-<td>{{ productResponse.p.price }}</td>
-<td>{{ productResponse.p.offeredPrice }}</td>
-<td>{{ productResponse.p.rating }}</td>
+<!-- Apply CSS for automatic text fitting -->
+<td matTooltip="{{ productResponse.p.description }}" [matTooltipPosition]="'above'" matTooltipClass="custom-tooltip">Put on cursor you will see description</td>
+<td>Rs.{{ productResponse.p.price }}</td>
+<td>Rs.{{ productResponse.p.offeredPrice }}</td>
+<td>{{ productResponse.p.noOfProducts }}</td>
 <td>{{ productResponse.p.createdDate }}</td>
 <td>{{ productResponse.p.updatedDate }}</td>
 <td><img [src]="productResponse.imageUrl" alt="{{ productResponse.p.productImage }}" width="90px" height="95px"></td>
 <td>
-<button mat-icon-button (click)="editC(productResponse)" matTooltip="Update Category">
+<!-- Action buttons -->
+<button mat-icon-button (click)="editP(productResponse.p.id,productResponse.p)" matTooltip="Update Product">
 <mat-icon>edit</mat-icon>
 </button>
-<button mat-icon-button (click)="deleteC(productResponse.id)" matTooltip="Delete Category">
+<button mat-icon-button (click)="deleteP(productResponse.p.id)" matTooltip="Delete Product">
 <mat-icon>delete</mat-icon>
 </button>
 </td>

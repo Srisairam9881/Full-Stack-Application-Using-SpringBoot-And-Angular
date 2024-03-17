@@ -1,0 +1,65 @@
+/* CSS for Product Grid */
+.product-grid {
+margin-top: 10px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 20px;
+}
+
+.product-item {
+border: 1px solid #ddd; /* Light border */
+border-radius: 5px;
+overflow: hidden;
+background-color: #fff; /* White background */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+}
+  
+/* Hover effect */
+.product-item:hover {
+transform: translateY(-5px); /* Move the item up slightly on hover */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+
+/* CSS for Product Image */
+.product-image img {
+width: 100%;
+height: auto;
+}
+
+/* CSS for Product Details */
+.product-details {
+padding: 10px;
+}
+
+.product-details h3 {
+margin-top: 0;
+font-size: 18px;
+font-weight: bold;
+}
+
+.product-details p {
+font-size: 14px;
+color: #555; /* Dark grey text */
+}
+
+.product-price {
+font-size: 16px;
+font-weight: bold;
+color: #007bff; /* Blue color for price */
+}
+
+/* CSS for Add to Cart Button */
+button {
+background-color: #007bff; /* Blue button */
+color: #fff; /* White text */
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+button:hover {
+background-color: #0056b3; /* Darker blue on hover */
+}

@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./update-product.component.css']
 })
 export class UpdateProductComponent {
-
 }

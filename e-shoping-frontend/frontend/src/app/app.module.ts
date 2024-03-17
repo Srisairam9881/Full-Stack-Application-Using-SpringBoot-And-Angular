@@ -39,7 +39,8 @@ import { UpdateProductComponent } from './Private Pages/Admin/Product-Activites/
 import { AdminProfileComponent } from './Private Pages/Admin/Admin-Activites/admin-profile/admin-profile.component';
 import { ProfileComponent } from './Private Pages/User/User-Activites/profile/profile.component';
 import { ConfirmationDialogComponent } from './Private Pages/Admin/Category-Activities/Dialog-confirm/ConfirmationDialogComponent ';
-
+import { PublicViewComponent } from './Public-Pages/public-view/public-view.component';
+import { ProductDetailComponent } from './Public-Pages/product-detail/product-detail.component';
 @NgModule({
 declarations: [
 AppComponent,
@@ -65,6 +66,8 @@ UpdateCategoryComponent,
 UpdateProductComponent,
 AdminProfileComponent,
 ConfirmationDialogComponent,
+PublicViewComponent,
+ProductDetailComponent
 ],
 imports: [
 BrowserModule,

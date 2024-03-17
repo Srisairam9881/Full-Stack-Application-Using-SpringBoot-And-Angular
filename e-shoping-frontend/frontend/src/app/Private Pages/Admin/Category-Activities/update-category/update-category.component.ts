@@ -26,7 +26,6 @@ private router: Router,
 public snackBar:MatSnackBar
 ){}
 ngOnInit(): void {
-// Assign the passed data to the category object
 this.cid = this.data.id;
 this.category = this.data;
 }
@@ -36,10 +35,9 @@ this.adminActions.updateCategory(this.cid, this.category).subscribe(
 this.category = data;
 this.dialogRef.close();
 this.snackBar.open('category has been updated successfully','close',{duration:3000});
-// Handle success message or action
 },
 (err) => {
-// Handle error
+this.snackBar.open('something wen wrong in backend','close',{duration:3000});
 }
 );
 }

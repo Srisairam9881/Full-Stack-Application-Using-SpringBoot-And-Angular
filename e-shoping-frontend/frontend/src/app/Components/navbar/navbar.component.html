@@ -14,7 +14,7 @@
 <mat-icon>shopping_cart</mat-icon>
 </button>
 <ng-container *ngIf="isLoggedIn; else loginSignupButtons">
-<button mat-button class="nav-button">{{user?.email }}</button>
+<button mat-button class="nav-button" (click)="gotoProfilePage()">{{user?.email }}</button>
 <button mat-raised-button color="accent" class="nav-button" (click)="logout()">Logout</button>
 </ng-container>
 <ng-template #loginSignupButtons>

@@ -40,7 +40,7 @@ dialogRef.afterClosed().subscribe(result => {
 console.log('The dialog was closed');
 });
 }
-deleteC(cid: any): void {
+deleteC(cid: number): void {
 const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
 data: { message: 'Are you sure you want to delete this category?' }
 });

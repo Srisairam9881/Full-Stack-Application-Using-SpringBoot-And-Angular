@@ -17,7 +17,7 @@ productName:'',
 description:'',
 price:'',
 offeredPrice:'',
-rating:'',
+noOfProducts:'',
 productImage:'',
 category:{
 categoryName:'',
@@ -44,14 +44,15 @@ formData.append('productName',this.products.productName);
 formData.append('description',this.products.description);
 formData.append('price',this.products.price);
 formData.append('offeredPrice',this.products.offeredPrice);
-formData.append('rating',this.products.rating);
+formData.append('noOfProducts',this.products.noOfProducts);
 formData.append('categoryName',this.products.category.categoryName);
 formData.append('categoryType',this.products.category.type);
 formData.append('image',this.selectedFile);
 this.adminActions.addProduct(formData).subscribe((data:any)=>{
 this.goToProductList();
-// window.location.reload();
+this.dialogRef.close();
 this.snackBar.open('product has been added successfully!!!.','close',{duration:3000});
+window.location.reload();
 },(err)=>{
 this.snackBar.open('Something wrong in backend','close',{duration:3000});
 })

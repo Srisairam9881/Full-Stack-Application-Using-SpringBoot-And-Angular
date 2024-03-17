@@ -1,0 +1,13 @@
+<div class="product-grid">
+<div *ngFor="let product of products" class="product-item" (click)="viewProductDetails(product.p.productName)">
+<div class="product-image">
+<img [src]="product.imageUrl" alt="Product Image" width="150px" height="150px">
+</div>
+<div class="product-details">
+<h3>{{ product.p.productName }}</h3>
+<p>{{ product.p.description }}</p>
+<div class="product-price">Price: {{ product.p.offeredPrice }}</div>
+<div class="product-price">Actual Price: {{ product.p.price }}</div>
+</div>
+</div>
+</div>

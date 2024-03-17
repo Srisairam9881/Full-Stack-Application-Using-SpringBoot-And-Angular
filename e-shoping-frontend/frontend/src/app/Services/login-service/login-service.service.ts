@@ -67,5 +67,14 @@ return user.roles[0]; // Assuming the user roles are stored as an array and you 
 return null; // or return a default role if needed
 }
 }));
+} 
+public isAdmin(): boolean {
+const user = this.getUser();
+return user && user.roles && user.roles.includes('ROLE_ADMIN');
+}
+// Check if the user is an User
+public isUser(): boolean {
+const user = this.getUser();
+return user && user.roles && user.roles.includes('ROLE_USER');
 }
 }

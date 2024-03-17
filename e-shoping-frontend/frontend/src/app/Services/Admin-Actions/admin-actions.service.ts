@@ -57,7 +57,7 @@ public getProductByName(productName:any){
 return this.http.get(`${baseUrl}/api/products/${productName}`); 
 }
 //delete Product
-public deleteProduct(id:number){
-return this.http.delete(`${baseUrl}/api/products/delete/${id}`,{ responseType:'text' })
+public deleteProduct(pid:number){
+return this.http.delete(`${baseUrl}/api/products/delete/${pid}`,{ responseType:'text' })
 }
 }

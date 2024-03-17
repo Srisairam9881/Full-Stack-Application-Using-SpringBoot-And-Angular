@@ -12,7 +12,7 @@ templateUrl: './view-products.component.html',
 styleUrls: ['./view-products.component.css']
 })
 export class ViewProductsComponent implements OnInit {
-products:any[]=[]
+products:any[]=[];
 filteredItems: any[] = [];
 searchTerm: string = '';
 showGoTopButton = false;
@@ -35,13 +35,13 @@ const productName = productResponse.p.productName.toLowerCase();
 const categoryName = productResponse.p.category.categoryName.toLowerCase();
 return productName.includes(searchTermLowerCase) || categoryName.includes(searchTermLowerCase);
 }
-editC(product: any): void {
-const dialogRef = this.dialog.open(UpdateProductComponent,{data: product});
+editP(productId: number,Product:any): void {
+const dialogRef = this.dialog.open(UpdateProductComponent,{data: productId, ...Product});
 dialogRef.afterClosed().subscribe(result => {
 console.log('The dialog was closed');
 });
 }
-deleteC(pid: any): void {
+deleteP(pid: number): void {
 const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
 data: { message: 'Are you sure you want to delete this category?' }
 });

@@ -53,3 +53,7 @@ display: none;
 .show-go-top {
 display: block;
 }
+.custom-tooltip {
+max-width: 300px; /* Adjust as needed */
+word-wrap: break-word;
+}

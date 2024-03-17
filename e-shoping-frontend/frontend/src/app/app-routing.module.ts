@@ -14,14 +14,19 @@ import { AddProductComponent } from './Private Pages/Admin/Product-Activites/add
 import { ViewCustomerAddressComponent } from './Private Pages/Admin/Admin-Activites/view-customer-address/view-customer-address.component';
 import { ViewCategoriesComponent } from './Private Pages/Admin/Category-Activities/view-categories/view-categories.component';
 import { AdminProfileComponent } from './Private Pages/Admin/Admin-Activites/admin-profile/admin-profile.component';
+import { PublicViewComponent } from './Public-Pages/public-view/public-view.component';
+import { ProductDetailComponent } from './Public-Pages/product-detail/product-detail.component';
 
 const routes: Routes = [
 {path:'login',component:LoginComponent},
 {path:'signup',component:SignupComponent},
+{path:'',component:PublicViewComponent,pathMatch:'full'},
+{path:'home',component:PublicViewComponent},
+{ path: 'product/:productName', component: ProductDetailComponent },
 //admin routerLinks
 {path:'admin-dashboard',component:AdminDashboardComponent,canActivate:[AdminGuard],
 children:[
-{path:'',component:WelcomeComponent},
+{path:'welcome',component:WelcomeComponent},
 {path:'admin-profile',component:AdminProfileComponent},
 {path:'view-admins',component:ViewAdminsComponent},
 {path:'view-users',component:ViewUsersComponent},

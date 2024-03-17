@@ -58,13 +58,16 @@ public class ProductController {
     // Method to get category details
     @GetMapping("/{productName}")
     public ResponseEntity<productDto> getProductByName(@PathVariable String productName) {
-        products product = productService.getProductsByName(productName);
-        if (product == null) {
+        List<products> productList = productService.getProductsByName(productName);
+        if (productList.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
+        // Assuming you want to handle only the first product in the list
+        products product = productList.get(0);
         String imageUrl = getImageUrl(product.getProductImage());
-        return ResponseEntity.ok().body(new productDto(product,imageUrl));
+        return ResponseEntity.ok().body(new productDto(product, imageUrl));
     }
+
     //Build Delete Product Rest Api
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/delete/{id}")

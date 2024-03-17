@@ -1,0 +1,22 @@
+<div class="product-details">
+<div *ngFor="let product of products" class="product-item">
+<h2 class="product-name">{{ product.p.productName }}</h2>
+<img class="product-image" [src]="product.imageUrl" alt="Product Image">
+<p class="description"><b>Description:</b> {{ product.p.description }}</p>
+<div class="price">
+<span class="label">Offered Price:</span>
+<span class="value">₹{{ product.p.offeredPrice }} </span>
+<span class="discount">Discount {{ calculateDiscount(product.p.price, product.p.offeredPrice) }}% off</span>
+</div>
+<div class="price">
+<span class="label">Actual Price:</span>
+<span class="value" style="text-decoration: line-through;">₹{{ product.p.price }}</span>
+</div>
+<button mat-raised-button color="primary" (click)="addToCart(product)" class="cart-button">
+<mat-icon>add_shopping_cart</mat-icon> Add to Cart
+</button>
+<button mat-raised-button color="accent" (click)="buyNow(product)" class="cart-button">
+<mat-icon>shopping_cart</mat-icon> Buy Now
+</button>
+</div>
+</div>

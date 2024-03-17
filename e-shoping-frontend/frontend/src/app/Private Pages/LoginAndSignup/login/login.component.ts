@@ -46,7 +46,7 @@ else if (role === "ROLE_USER") {
 this.snackBar.open('Welcome User Your logged successfully', 'Close', {
 duration: 3000
 });
-this.router.navigate(['user-dashboard']);
+this.router.navigate(['']);
 } 
 else {
 this.errorMessage ='Invalid user role';
