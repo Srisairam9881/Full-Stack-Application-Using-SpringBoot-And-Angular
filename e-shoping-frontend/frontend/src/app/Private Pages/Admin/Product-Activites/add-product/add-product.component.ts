@@ -17,7 +17,7 @@ productName:'',
 description:'',
 price:'',
 offeredPrice:'',
-noOfProducts:'',
+stockUnit:'',
 productImage:'',
 category:{
 categoryName:'',
@@ -44,7 +44,7 @@ formData.append('productName',this.products.productName);
 formData.append('description',this.products.description);
 formData.append('price',this.products.price);
 formData.append('offeredPrice',this.products.offeredPrice);
-formData.append('noOfProducts',this.products.noOfProducts);
+formData.append('stockUnit',this.products.stockUnit);
 formData.append('categoryName',this.products.category.categoryName);
 formData.append('categoryType',this.products.category.type);
 formData.append('image',this.selectedFile);

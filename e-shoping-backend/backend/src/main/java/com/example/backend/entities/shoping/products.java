@@ -23,7 +23,7 @@ public class products {
     private String description;
     private String price;
     private String offeredPrice;
-    private String noOfProducts;
+    private String stockUnit; //no .of stock units
     @Column(name = "created_date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
