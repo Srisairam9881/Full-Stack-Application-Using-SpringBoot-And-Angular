@@ -34,10 +34,11 @@ This Application I used Spring Boot And Angular
   - delete categories
    ## Public Page
    - view Products
-   - when click on product can product details
+   - when user click on product can view product details
    ## User Panel
-   - profile access
+   - profile access (can do update and delete)
    - see all products
+   - can access view product details
 
 
 
