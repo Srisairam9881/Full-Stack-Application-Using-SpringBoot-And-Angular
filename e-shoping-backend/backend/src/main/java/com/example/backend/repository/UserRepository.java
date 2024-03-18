@@ -21,5 +21,4 @@ public interface UserRepository extends JpaRepository<User,Long> {
     Boolean existingByEmail(String email);
     @Query("SELECT u FROM User u JOIN u.roles r WHERE r = :role")
     List<User> findAllByRole(@Param("role") Role role);
-
 }

@@ -39,6 +39,9 @@ This Application I used Spring Boot And Angular
    - profile access (can do update and delete)
    - see all products
    - can access view product details
+   - Add products in carts
+   - View all carts
+   - Remove products from carts
 
 
 

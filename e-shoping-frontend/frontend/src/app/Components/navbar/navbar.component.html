@@ -11,7 +11,7 @@
 </button>
 </div>
 <ng-container *ngIf="isLoggedIn; else loginSignupButtons">
-<button mat-icon-button class="cart-icon" matTooltip="Carts List"><mat-icon>shopping_cart</mat-icon></button>
+<button mat-icon-button class="cart-icon" matTooltip="Carts List" (click)="gotocartList()"><mat-icon>shopping_cart</mat-icon></button>
 <button mat-icon-button class="cart-icon" matTooltip="Orders List"><mat-icon>shopping_bag</mat-icon></button>
 <button mat-button class="nav-button" (click)="gotoProfilePage()">{{user?.email }}</button>
 <button mat-raised-button color="accent" class="nav-button" (click)="logout()">Logout</button>

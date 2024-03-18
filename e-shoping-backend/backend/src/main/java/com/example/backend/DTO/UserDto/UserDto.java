@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @Getter
 public class UserDto {
+    private Long id;
     private String firstName;
     private String lastName;
     private String phoneNo;

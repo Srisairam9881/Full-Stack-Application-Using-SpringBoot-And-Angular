@@ -55,7 +55,7 @@ public class AuthController {
     public UserDto getUserDetailsByUsernameOrEmail(@PathVariable String usernameOrEmail) {
         User user = authService.getUserDetailsByUsernameOrEmail(usernameOrEmail);
         List<String> roles = user.getRoles().stream().map(Role::getRoleName).collect(Collectors.toList());
-        return new UserDto(user.getFirstName(),user.getLastName(),user.getPhoneNo(),user.getUsername(),user.getEmail(),roles);
+        return new UserDto(user.getId(),user.getFirstName(),user.getLastName(),user.getPhoneNo(),user.getUsername(),user.getEmail(),roles);
     }
     // Build Update user details Rest API
     @PutMapping("/{usernameOrEmail}")
@@ -76,6 +76,7 @@ public class AuthController {
         User user = authService.getUserDetailsByUsernameOrEmail(username);
         List<String> roles = user.getRoles().stream().map(Role::getRoleName).collect(Collectors.toList()); // Assuming Role has a field 'roleName' representing the name of the role
         UserDto userDto = new UserDto(
+                user.getId(),
                 user.getFirstName(),
                 user.getLastName(),
                 user.getPhoneNo(),

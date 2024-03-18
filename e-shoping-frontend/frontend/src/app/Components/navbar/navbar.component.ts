@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 import { LoginComponent } from 'src/app/Private Pages/LoginAndSignup/login/login.component';
 import { SignupComponent } from 'src/app/Private Pages/LoginAndSignup/signup/signup.component';
 import { ProfileComponent } from 'src/app/Private Pages/User/User-Activites/profile/profile.component';
+import { ViewCartsComponent } from 'src/app/Private Pages/User/view-carts/view-carts.component';
 import { LoginServiceService } from 'src/app/Services/login-service/login-service.service';
 
 @Component({
@@ -75,6 +76,12 @@ openProfileDialog(): void {
 this.dialog.open(ProfileComponent, {
 disableClose: false // Prevent closing the dialog by clicking outside or pressing ESC key
 });
+}
+gotocartList():void{
+const dialogRef=this.dialog.open(ViewCartsComponent)
+dialogRef.afterClosed().subscribe(result=>{
+console.log("The dialog was closed");
+})
 }
 }
 

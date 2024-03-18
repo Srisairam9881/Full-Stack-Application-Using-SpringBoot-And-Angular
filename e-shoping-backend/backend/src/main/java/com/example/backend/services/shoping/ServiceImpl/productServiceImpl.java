@@ -115,9 +115,10 @@ public class productServiceImpl implements ProductService {
     public List<products> getProductsByName(String modelName) {
         return productRepository.findByModelName(modelName);
     }
+
     @Override
     public void deleteProduct(Long id) {
-    // Find the product by ID
+        // Find the product by ID
         Optional<products> studentOptional = productRepository.findById(id);
         studentOptional.ifPresent(student -> {
             // Delete the image file from local disk

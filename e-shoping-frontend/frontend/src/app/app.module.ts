@@ -43,6 +43,7 @@ import { PublicViewComponent } from './Public-Pages/public-view/public-view.comp
 import { ProductDetailComponent } from './Public-Pages/product-detail/product-detail.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ViewCartsComponent } from './Private Pages/User/view-carts/view-carts.component';
 @NgModule({
 declarations: [
 AppComponent,
@@ -70,6 +71,7 @@ AdminProfileComponent,
 ConfirmationDialogComponent,
 PublicViewComponent,
 ProductDetailComponent,
+ViewCartsComponent,
 ],
 imports: [
 BrowserModule,

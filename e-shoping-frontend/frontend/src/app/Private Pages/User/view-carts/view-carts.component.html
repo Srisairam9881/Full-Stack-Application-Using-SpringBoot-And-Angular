@@ -1,0 +1,20 @@
+<div *ngIf="hasData; else noDataMessage" class="cart-container">
+<div *ngFor="let cartItem of cartItems" class="cart-item">
+<div class="product-details">
+<a [routerLink]="['/product', cartItem.p.modelName]">
+<img *ngIf="cartItem.imageUrl" [src]="cartItem.imageUrl" alt="Product Image">
+</a>
+<p style="margin-top: 10px;"><b >ModelName: </b>{{cartItem.p.productName}}</p>
+<div class="info">
+<p class="price"><b>Price: </b>{{ cartItem?.p?.price }}</p>
+<p class="quantity"><b>Quantity: </b>{{ cartItem.quantity }}</p>
+</div>
+</div>
+<p class="name">{{ cartItem?.p?.name }}</p>
+<button class="remove-button" (click)="removeFromCart(cartItem)">Remove</button>
+</div>
+</div>
+
+<ng-template #noDataMessage>
+<p class="no-items-message">No cart items available</p>
+</ng-template>

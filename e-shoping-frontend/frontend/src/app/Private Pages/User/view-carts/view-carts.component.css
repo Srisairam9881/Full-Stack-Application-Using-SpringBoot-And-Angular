@@ -1,0 +1,57 @@
+.cart-container {
+display: flex;
+width: 70vh;
+justify-content: center;
+flex-direction: column; 
+}
+
+.cart-item {
+width: 100%; /* Take up full width of the container */
+margin-bottom: 20px;
+background-color: #f9f9f9;
+border: 1px solid #ddd;
+padding: 10px;
+}
+
+.product-details {
+align-items: center;
+}
+
+.product-details img {
+width: 100px;
+height: 100px;
+margin-right: 10px;
+border-radius: 50%; /* Make the image circular */
+object-fit: cover; /* Ensure the image fills the circle without stretching */
+}
+
+.info {
+display: flex;
+flex-direction: column;
+}
+
+.name {
+font-weight: bold;
+margin-top: 10px;
+}
+
+.remove-button {
+background-color: red;
+color: white;
+border: none;
+padding: 10px;
+cursor: pointer;
+width: 100%;
+}
+
+.remove-button:hover {
+background-color: darkred;
+}
+
+.no-items-message {
+width: 40vh;
+height: 30vh;
+margin-top: 50%;
+text-align: center;
+font-style: italic;
+}
