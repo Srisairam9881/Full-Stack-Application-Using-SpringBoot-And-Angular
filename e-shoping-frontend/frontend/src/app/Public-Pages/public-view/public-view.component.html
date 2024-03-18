@@ -1,5 +1,6 @@
 <div class="product-grid">
-<div *ngFor="let product of products" class="product-item" (click)="viewProductDetails(product.p.productName)">
+<ng-container *ngIf="products.length > 0; else noData">
+<div *ngFor="let product of products" class="product-item" (click)="viewProductDetails(product.p.modelName)">
 <div class="product-image">
 <img [src]="product.imageUrl" alt="Product Image" width="150px" height="150px">
 </div>
@@ -10,4 +11,10 @@
 <div class="product-price">Actual Price: {{ product.p.price }}</div>
 </div>
 </div>
+</ng-container>
+<ng-template #noData>
+<div class="no-data-message">
+<p>No products available</p>
+</div>
+</ng-template>
 </div>

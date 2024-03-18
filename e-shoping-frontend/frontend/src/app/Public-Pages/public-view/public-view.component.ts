@@ -22,7 +22,7 @@ console.log(data);
 this.snackbar.open('something went wrong in server.Please try again later sometime','close',{duration:3000});
 })
 }
-viewProductDetails(productName:string){
-this.router.navigate(['/product', productName]);
+viewProductDetails(modelName:string){
+this.router.navigate(['/product', modelName]);
 }
 }

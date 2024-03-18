@@ -1,26 +1,28 @@
 .product-form {
-margin-top: 10px;
 width: 120vh;
-height: 80vh;
+height: 100vh;
 margin: 0 auto;
-padding-left: 15px;
-padding-right: 15px;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #f9f9f9;
 }
 
-.input-group {
-display: flex;
-justify-content: space-between;
+.form-title {
+text-align: center;
+margin-top: 10px;
+}
+
+.divider {
 margin-bottom: 20px;
 }
 
 .form-group {
-flex: 1;
-margin-right: 10px;
+margin-bottom: 20px;
 }
 
 label {
 font-weight: bold;
-margin-bottom: 5px;
 }
 
 input[type="text"],
@@ -28,23 +30,27 @@ input[type="number"],
 textarea,
 select {
 width: 100%;
-padding: 10px;
-font-size: 16px;
+padding: 8px;
 border: 1px solid #ccc;
-border-radius: 5px;
+border-radius: 4px;
+box-sizing: border-box;
 }
 
-textarea {
-height: 100px;
+input[type="file"] {
+width: calc(100% - 40px); /* Adjust according to the button's width */
 }
 
-button[type="submit"] {
+.submit-button {
 width: 100%;
 padding: 10px;
-font-size: 16px;
+background-color: #4caf50;
+color: white;
 border: none;
-border-radius: 5px;
-background-color: #007bff;
-color: #fff;
+border-radius: 4px;
 cursor: pointer;
 }
+
+.submit-button:hover {
+background-color: #45a049;
+}
+

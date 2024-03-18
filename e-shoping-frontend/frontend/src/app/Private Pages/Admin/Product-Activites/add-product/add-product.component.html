@@ -1,7 +1,7 @@
 <form (ngSubmit)="submitForm()" #productForm="ngForm" class="product-form" enctype="multipart/form-data">
-<h1 style="text-align: center; margin-top: 10px;">Add New Product</h1>
-<mat-divider></mat-divider>
-<div class="input-group">
+<h1 class="form-title">Add New Product</h1>
+<mat-divider class="divider"></mat-divider>
+
 <div class="form-group">
 <label for="productName">Product Name:</label>
 <input type="text" id="productName" name="productName" [(ngModel)]="products.productName" required>
@@ -10,28 +10,37 @@
 <label for="description">Description:</label>
 <textarea id="description" name="description" [(ngModel)]="products.description" required></textarea>
 </div>
+
+<div class="form-group">
+<label for="modelName">Model Name:</label>
+<input type="text" id="modelName" name="modelName" [(ngModel)]="products.modelName" required>
 </div>
-<div class="input-group">
+
+<div class="form-group">
+<label for="modelName">Model Number:</label>
+<input type="text" id="modelNumber" name="modelNumber" [(ngModel)]="products.modelNumber" required>
+</div>
+
 <div class="form-group">
 <label for="price">Price:</label>
 <input type="number" id="price" name="price" [(ngModel)]="products.price" required>
 </div>
+
 <div class="form-group">
 <label for="offeredPrice">Offered Price:</label>
 <input type="number" id="offeredPrice" name="offeredPrice" [(ngModel)]="products.offeredPrice" required>
 </div>
-</div>
-<div class="input-group">
+
 <div class="form-group">
-<label for="rating">No.of products:</label>
+<label for="stockUnit">No. of products:</label>
 <input type="number" id="stockUnit" name="stockUnit" [(ngModel)]="products.stockUnit" required>
 </div>
+
 <div class="form-group">
 <label for="productImage">Product Image:</label>
-<input type="file" id="productImage" name="image" (change)="onFileSelected($event)" accept="image/*" required style="margin-left: 10px;">
+<input type="file" id="productImage" name="image" (change)="onFileSelected($event)" accept="image/*" required>
 </div>
-</div>
-<div class="input-group">
+
 <div class="form-group">
 <label for="categoryName">Category Name:</label>
 <select id="categoryName" name="categoryName" [(ngModel)]="products.category.categoryName" required>
@@ -39,6 +48,7 @@
 <option *ngFor="let category of categories" [value]="category.categoryName">{{ category.categoryName }}</option>
 </select>
 </div>
+
 <div class="form-group">
 <label for="categoryType">Category Type:</label>
 <select id="categoryType" name="categoryType" [(ngModel)]="products.category.type" required>
@@ -46,6 +56,6 @@
 <option *ngFor="let category of categories" [value]="category.type">{{ category.type }}</option>
 </select>
 </div>
-</div>
-<button type="submit" [disabled]="productForm.invalid">Submit</button>
+
+<button type="submit" [disabled]="productForm.invalid" class="submit-button">Submit</button>
 </form>

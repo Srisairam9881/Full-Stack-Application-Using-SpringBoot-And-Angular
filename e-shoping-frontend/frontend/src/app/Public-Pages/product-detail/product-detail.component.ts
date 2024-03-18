@@ -15,15 +15,14 @@ private route: ActivatedRoute,
 private productService: AdminActionsService,
 public snackbar: MatSnackBar
 ) { }
-
 ngOnInit(): void {
 this.route.params.subscribe(params => {
 const productName = params['productName'];
 this.loadProduct(productName);
 });
 }
-loadProduct(productName: string): void {
-this.productService.getProductByName(productName).subscribe(
+loadProduct(modelName: string): void {
+this.productService.getProductByName(modelName).subscribe(
 (data: any) => {
 if (Array.isArray(data)) {
 // If the response is an array, assume it's a list of products and assign it directly

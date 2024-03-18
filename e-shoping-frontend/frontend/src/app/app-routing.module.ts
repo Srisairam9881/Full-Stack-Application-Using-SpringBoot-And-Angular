@@ -22,7 +22,7 @@ const routes: Routes = [
 {path:'signup',component:SignupComponent},
 {path:'',component:PublicViewComponent,pathMatch:'full'},
 {path:'home',component:PublicViewComponent},
-{ path: 'product/:productName', component: ProductDetailComponent },
+{ path: 'product/:modelName', component: ProductDetailComponent },
 //admin routerLinks
 {path:'admin-dashboard',component:AdminDashboardComponent,canActivate:[AdminGuard],
 children:[

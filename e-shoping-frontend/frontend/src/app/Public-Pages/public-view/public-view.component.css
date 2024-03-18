@@ -42,17 +42,14 @@ font-weight: bold;
 font-size: 14px;
 color: #555; /* Dark grey text */
 }
-
 .product-price {
 font-size: 16px;
 font-weight: bold;
-color: #007bff; /* Blue color for price */
+color: #007bff; 
 }
-
-/* CSS for Add to Cart Button */
 button {
-background-color: #007bff; /* Blue button */
-color: #fff; /* White text */
+background-color: #007bff; 
+color: #fff; 
 border: none;
 padding: 10px 20px;
 border-radius: 5px;
@@ -61,5 +58,10 @@ transition: background-color 0.3s ease;
 }
 
 button:hover {
-background-color: #0056b3; /* Darker blue on hover */
+background-color: #0056b3;
+}
+.no-data-message {
+grid-column: 1 / -1; 
+margin-top: 20px;
+text-align: center;
 }

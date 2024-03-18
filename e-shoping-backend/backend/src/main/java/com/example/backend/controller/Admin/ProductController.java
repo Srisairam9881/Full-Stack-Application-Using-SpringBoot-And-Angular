@@ -56,9 +56,9 @@ public class ProductController {
         return ResponseEntity.ok().body(responses);
     }
     // Method to get category details
-    @GetMapping("/{productName}")
-    public ResponseEntity<productDto> getProductByName(@PathVariable String productName) {
-        List<products> productList = productService.getProductsByName(productName);
+    @GetMapping("/{modelName}")
+    public ResponseEntity<productDto> getProductByName(@PathVariable String modelName) {
+        List<products> productList = productService.getProductsByName(modelName);
         if (productList.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

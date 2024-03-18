@@ -44,7 +44,7 @@ public class AuthController {
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
     //Build New Admin Register Rest API
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/admin/register")
     public ResponseEntity<String> adminRegister(@RequestBody registerDto rd){
         String response=authService.adminRegister(rd);

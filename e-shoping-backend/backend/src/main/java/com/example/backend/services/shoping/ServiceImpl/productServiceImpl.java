@@ -112,8 +112,8 @@ public class productServiceImpl implements ProductService {
     }
 
     @Override
-    public List<products> getProductsByName(String productName) {
-        return productRepository.findByProductName(productName);
+    public List<products> getProductsByName(String modelName) {
+        return productRepository.findByModelName(modelName);
     }
     @Override
     public void deleteProduct(Long id) {

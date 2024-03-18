@@ -53,8 +53,8 @@ public getAllProducts(){
 return this.http.get(`${baseUrl}/api/products/allProducts`);
 }
 //get Products By Name
-public getProductByName(productName:any){
-return this.http.get(`${baseUrl}/api/products/${productName}`); 
+public getProductByName(modelName:any){
+return this.http.get(`${baseUrl}/api/products/${modelName}`); 
 }
 //delete Product
 public deleteProduct(pid:number){

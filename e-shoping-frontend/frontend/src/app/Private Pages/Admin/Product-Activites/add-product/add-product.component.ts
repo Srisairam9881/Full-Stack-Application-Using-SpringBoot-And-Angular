@@ -14,6 +14,8 @@ export class AddProductComponent implements OnInit{
 selectedFile!: File;
 products={
 productName:'',
+modelName:'',
+modelNumber:'',
 description:'',
 price:'',
 offeredPrice:'',
@@ -41,6 +43,8 @@ this.categories = data;
 submitForm(){
 const formData =new FormData(); 
 formData.append('productName',this.products.productName);
+formData.append('modelName',this.products.modelName);
+formData.append('modelName',this.products.modelNumber);
 formData.append('description',this.products.description);
 formData.append('price',this.products.price);
 formData.append('offeredPrice',this.products.offeredPrice);

@@ -41,6 +41,7 @@ import { ProfileComponent } from './Private Pages/User/User-Activites/profile/pr
 import { ConfirmationDialogComponent } from './Private Pages/Admin/Category-Activities/Dialog-confirm/ConfirmationDialogComponent ';
 import { PublicViewComponent } from './Public-Pages/public-view/public-view.component';
 import { ProductDetailComponent } from './Public-Pages/product-detail/product-detail.component';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
 declarations: [
 AppComponent,
@@ -67,7 +68,7 @@ UpdateProductComponent,
 AdminProfileComponent,
 ConfirmationDialogComponent,
 PublicViewComponent,
-ProductDetailComponent
+ProductDetailComponent,
 ],
 imports: [
 BrowserModule,
@@ -86,7 +87,8 @@ MatListModule,
 MatSnackBarModule,
 MatTooltipModule,
 MatTableModule,
-MatDividerModule
+MatDividerModule,
+MatSelectModule,
 ],
 providers: [authInterceptorProviders],
 bootstrap: [AppComponent]

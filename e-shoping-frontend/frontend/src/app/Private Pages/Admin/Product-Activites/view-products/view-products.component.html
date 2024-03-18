@@ -13,6 +13,8 @@
 <th>Category Name</th>
 <th>Category Type</th>
 <th>Product Name</th>
+<th>Model Name</th>
+<th>Model Number</th>
 <th>Description</th>
 <th>Actual Price</th>
 <th>Offer Price</th>
@@ -30,13 +32,14 @@
 <td>{{ productResponse.p.category.categoryName }}</td>
 <td>{{ productResponse.p.category.type }}</td>
 <td>{{ productResponse.p.productName }}</td>
-<!-- Apply CSS for automatic text fitting -->
+<td>{{ productResponse.p.modelName }}</td>
+<td>{{ productResponse.p.modelNumber }}</td>
 <td matTooltip="{{ productResponse.p.description }}" [matTooltipPosition]="'above'" matTooltipClass="custom-tooltip">Put on cursor you will see description</td>
 <td>Rs.{{ productResponse.p.price }}</td>
 <td>Rs.{{ productResponse.p.offeredPrice }}</td>
 <td>{{ productResponse.p.stockUnit }}</td>
-<td>{{ productResponse.p.createdDate }}</td>
-<td>{{ productResponse.p.updatedDate }}</td>
+<td matTooltip="{{ productResponse.p.createdDate }}" [matTooltipPosition]="'above'" matTooltipClass="custom-tooltip">Put on cursor  you will see createdDate</td>
+<td matTooltip="{{ productResponse.p.updatedDate }}" [matTooltipPosition]="'above'" matTooltipClass="custom-tooltip">Put on cursor  you will see updatedDate</td>
 <td><img [src]="productResponse.imageUrl" alt="{{ productResponse.p.productImage }}" width="90px" height="95px"></td>
 <td>
 <!-- Action buttons -->
