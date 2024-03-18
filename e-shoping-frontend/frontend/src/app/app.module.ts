@@ -42,6 +42,7 @@ import { ConfirmationDialogComponent } from './Private Pages/Admin/Category-Acti
 import { PublicViewComponent } from './Public-Pages/public-view/public-view.component';
 import { ProductDetailComponent } from './Public-Pages/product-detail/product-detail.component';
 import { MatSelectModule } from '@angular/material/select';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
 declarations: [
 AppComponent,
@@ -89,6 +90,7 @@ MatTooltipModule,
 MatTableModule,
 MatDividerModule,
 MatSelectModule,
+MatGridListModule
 ],
 providers: [authInterceptorProviders],
 bootstrap: [AppComponent]

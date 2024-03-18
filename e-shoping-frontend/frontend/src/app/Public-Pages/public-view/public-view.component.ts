@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AdminActionsService } from 'src/app/Services/Admin-Actions/admin-actions.service';
-
 @Component({
 selector: 'app-public-view',
 templateUrl: './public-view.component.html',
-styleUrls: ['./public-view.component.css']
+styleUrls: ['./public-view.component.css'],
 })
 export class PublicViewComponent implements OnInit{
 products:any[]=[];
+showDetails: boolean = false;
 constructor(private productService: AdminActionsService,public snackbar:MatSnackBar,public router:Router) { }
 ngOnInit(): void {
 this.loadProducts();

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminActionsService } from 'src/app/Services/Admin-Actions/admin-actions.service';
+import { LoginServiceService } from 'src/app/Services/login-service/login-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from 'src/app/Private Pages/LoginAndSignup/login/login.component';
 
 @Component({
 selector: 'app-product-detail',
@@ -10,15 +13,19 @@ styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
 products: any;
+isLoggedIn!: boolean;
 constructor(
 private route: ActivatedRoute,
 private productService: AdminActionsService,
-public snackbar: MatSnackBar
+private snackbar: MatSnackBar,
+private authService:LoginServiceService,
+private dialog: MatDialog 
 ) { }
 ngOnInit(): void {
 this.route.params.subscribe(params => {
-const productName = params['productName'];
-this.loadProduct(productName);
+const modelName = params['modelName'];
+this.loadProduct(modelName);
+this.isLoggedIn = this.authService.isLoggedIn();
 });
 }
 loadProduct(modelName: string): void {
@@ -41,10 +48,21 @@ calculateDiscount(originalPrice: number, offeredPrice: number): number {
 return Math.round(((originalPrice - offeredPrice) / originalPrice) * 100);
 }
 addToCart(product: any): void {
-// Implement addToCart functionality here
+if (this.isLoggedIn) {
+} else {
+this.openLoginDialog();
+}
+}
+buyNow(product: any): void {
+if (this.isLoggedIn) {
+} else {
+this.openLoginDialog();
+}
+}
+openLoginDialog(): void {
+this.dialog.open(LoginComponent, {
+disableClose: false
+});
+}
 }
 
-buyNow(product: any): void {
-// Implement buyNow functionality here
-}
-}

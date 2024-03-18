@@ -40,6 +40,4 @@ public class User{
     private Set<CustomerDetails> addresses;
     public User(User user, List<CustomerDetails> customerDetails) {
     }
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Cart cart;
 }

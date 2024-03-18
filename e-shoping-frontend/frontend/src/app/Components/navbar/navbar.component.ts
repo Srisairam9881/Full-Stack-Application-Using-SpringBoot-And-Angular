@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { LoginComponent } from 'src/app/Private Pages/LoginAndSignup/login/login.component';
 import { SignupComponent } from 'src/app/Private Pages/LoginAndSignup/signup/signup.component';
+import { ProfileComponent } from 'src/app/Private Pages/User/User-Activites/profile/profile.component';
 import { LoginServiceService } from 'src/app/Services/login-service/login-service.service';
 
 @Component({
@@ -14,7 +15,7 @@ styleUrls: ['./navbar.component.css']
 export class NavbarComponent {
 isLoggedIn=false;
 user:any;
-constructor(public login:LoginServiceService,public dialog: MatDialog,public router:Router) { }
+constructor(public login:LoginServiceService,private dialog: MatDialog,private router:Router) { }
 
 ngOnInit(): void {
 this.isLoggedIn = this.login.isLoggedIn();
@@ -64,11 +65,16 @@ if (this.login.isLoggedIn() && role === 'ROLE_ADMIN') {
 this.router.navigate(['/admin-dashboard/admin-profile']);
 return true;
 } else {
-this.router.navigate(['/user/user-profile']);
-return false;
+this.openProfileDialog();
+return true;
 }
 })
 ).subscribe(); // Subscribe to trigger the execution of the observable
 }
-
+openProfileDialog(): void {
+this.dialog.open(ProfileComponent, {
+disableClose: false // Prevent closing the dialog by clicking outside or pressing ESC key
+});
 }
+}
+

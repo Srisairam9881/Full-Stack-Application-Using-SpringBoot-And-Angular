@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
 <a routerLink="/" class="logo-link">
 <img src="../../../assets/store.png" width="45px" height="40px" alt="">
-<span class="logo" style="margin-left: 7px;">E-Shopping</span>
+<span class="logo" style="margin-left: 7px;" matTooltip="Go To Home Page">E-Shopping</span>
 </a>
 <span class="spacer"></span>
 <div class="search-container">
@@ -10,10 +10,9 @@
 <mat-icon>search</mat-icon>
 </button>
 </div>
-<button mat-icon-button class="cart-icon">
-<mat-icon>shopping_cart</mat-icon>
-</button>
 <ng-container *ngIf="isLoggedIn; else loginSignupButtons">
+<button mat-icon-button class="cart-icon" matTooltip="Carts List"><mat-icon>shopping_cart</mat-icon></button>
+<button mat-icon-button class="cart-icon" matTooltip="Orders List"><mat-icon>shopping_bag</mat-icon></button>
 <button mat-button class="nav-button" (click)="gotoProfilePage()">{{user?.email }}</button>
 <button mat-raised-button color="accent" class="nav-button" (click)="logout()">Logout</button>
 </ng-container>

@@ -3,20 +3,23 @@ margin-top: 10px;
 margin-left: 15px;
 background-color: cornsilk;
 color: black;
+display: inline-block; 
 padding: 20px;
 border-radius: 10px;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+max-width: max-content;
+width: 100%;
+overflow-x: auto; 
+}
+
+table {
+width: auto;
 }
 .search-bar {
 margin-bottom: 10px;
 width: 20vh;
 height: 45px;
 border-radius: 20px;
-}
-
-table {
-width: 100%;
-border-collapse: collapse;
 }
 
 th, td {

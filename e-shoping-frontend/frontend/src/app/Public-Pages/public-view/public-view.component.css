@@ -1,67 +1,69 @@
-/* CSS for Product Grid */
-.product-grid {
+mat-card {
+padding: 20px;
+background-color: #f0f0f0; /* Light gray background */
+border-radius: 8px; /* Rounded corners */
+height: 100%;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for elevation */
+}
+
+mat-grid-list {
 margin-top: 10px;
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-gap: 20px;
+width: 100%; /* Ensure the grid list takes full width */
+height: 100%;
 }
 
-.product-item {
-border: 1px solid #ddd; /* Light border */
-border-radius: 5px;
-overflow: hidden;
-background-color: #fff; /* White background */
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
-transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+.product-display {
+position: relative;
 }
-  
-/* Hover effect */
-.product-item:hover {
-transform: translateY(-5px); /* Move the item up slightly on hover */
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
-  }
 
-/* CSS for Product Image */
 .product-image img {
-width: 100%;
-height: auto;
+width: 50vh;
+height: 50vh;
+object-fit: cover;
+margin-bottom: 10px;
+border-radius: 4px;
 }
 
-/* CSS for Product Details */
 .product-details {
-padding: 10px;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #fff;
+padding: 15px;
+border-radius: 4px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+display: none;
 }
 
-.product-details h3 {
-margin-top: 0;
-font-size: 18px;
+.mat-grid-tile:hover .product-details {
+display: block;
+}
+
+.product-labels {
+margin-top: 10px;
+}
+
+.product-labels h4,
+.product-labels h3 {
+margin: 0;
 font-weight: bold;
+}
+
+.product-labels h4 {
+font-size: 16px;
+}
+
+.product-labels h3 {
+font-size: 18px;
 }
 
 .product-details p {
 font-size: 14px;
-color: #555; /* Dark grey text */
-}
-.product-price {
-font-size: 16px;
-font-weight: bold;
-color: #007bff; 
-}
-button {
-background-color: #007bff; 
-color: #fff; 
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s ease;
+margin: 10px 0;
 }
 
-button:hover {
-background-color: #0056b3;
-}
-.no-data-message {
-grid-column: 1 / -1; 
-margin-top: 20px;
-text-align: center;
+.product-price {
+font-size: 16px;
 }

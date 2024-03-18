@@ -5,7 +5,7 @@
 <p class="description"><b>Description:</b> {{ product.p.description }}</p>
 <div class="price">
 <span class="label">Model Name: </span>
-<span class="value">{{product.p.modelName}}</span>
+<span class="value">{{product.p.modelName}}</span><br><br>
 <span class="label">Offered Price:</span>
 <span class="value">₹{{ product.p.offeredPrice }} </span>
 <span class="discount">Discount {{ calculateDiscount(product.p.price, product.p.offeredPrice) }}% off</span>

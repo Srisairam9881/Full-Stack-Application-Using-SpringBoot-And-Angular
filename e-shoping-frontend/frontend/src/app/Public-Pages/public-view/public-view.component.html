@@ -1,20 +1,30 @@
-<div class="product-grid">
+<mat-card>
+<mat-grid-list cols="4" gutterSize="20px">
 <ng-container *ngIf="products.length > 0; else noData">
-<div *ngFor="let product of products" class="product-item" (click)="viewProductDetails(product.p.modelName)">
+<mat-grid-tile *ngFor="let product of products" (click)="viewProductDetails(product.p.modelName)">
+<div class="product-display" (mouseenter)="showDetails = true" (mouseleave)="showDetails = false">
 <div class="product-image">
 <img [src]="product.imageUrl" alt="Product Image" width="150px" height="150px">
+<h2 style="margin-bottom: 90px; text-align: center;">{{ product.p.modelName }}</h2>
 </div>
-<div class="product-details">
-<h3>{{ product.p.productName }}</h3>
-<p>{{ product.p.description }}</p>
-<div class="product-price">Price: {{ product.p.offeredPrice }}</div>
-<div class="product-price">Actual Price: {{ product.p.price }}</div>
+<div class="product-details" *ngIf="showDetails">
+<!-- <div class="product-labels"> -->
+<h4 style="margin-top: 70px;"><b>Model Number: </b>{{ product.p.modelNumber }}</h4>
+<h3><b>Product Name: </b>{{ product.p.productName }}</h3>
+<!-- </div> -->
+<p><b>Description: </b>{{ product.p.description }}</p>
+<div class="product-price"><b>Price: </b><p style="text-decoration: line-through;">Rs.{{ product.p.offeredPrice }}</p></div>
+<div class="product-price"><b>Actual Price: </b>Rs.{{ product.p.price }}</div>
 </div>
 </div>
+</mat-grid-tile>
 </ng-container>
 <ng-template #noData>
+<mat-grid-tile>
 <div class="no-data-message">
 <p>No products available</p>
 </div>
+</mat-grid-tile>
 </ng-template>
-</div>
+</mat-grid-list>
+</mat-card>
